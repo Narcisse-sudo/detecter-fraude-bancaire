@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fraud-detection"
+version = "0.1.0"
+description = "End-to-end credit card fraud detection project"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{ name = "Project", email = "dalkonarcisse19@gmail.com" }]
+
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.2",
+  "scikit-learn>=1.4",
+  "lightgbm>=4.3",
+  "matplotlib>=3.8",
+  "seaborn>=0.13",
+  "scipy>=1.11",
+  "joblib>=1.4",
+  "pandera>=0.19",
+  "pydantic>=2.6",
+  "pydantic-settings>=2.2",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
+  "python-multipart>=0.0.9",
+  "streamlit>=1.31",
+  "kaggle>=1.6",
+  "requests>=2.31",
+  "docker>=7.1.0",
+]
+
+[project.optional-dependencies]
+notebooks = [
+  "jupyter>=1.0",
+  "ipykernel>=6.29",
+]
+
+dev = [
+  "pytest>=8.0",
+  "httpx>=0.27",
+  "ruff>=0.4",
+  "black>=24.2",
+  "pre-commit>=3.6",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.black]
+line-length = 100
+extend-exclude = "/notebooks/"
+
+[tool.ruff]
+line-length = 100
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.ruff.lint.flake8-bugbear]
+# FastAPI dependency-injection markers are meant to be called in arg defaults.
+extend-immutable-calls = ["fastapi.File", "fastapi.Query", "fastapi.Form", "fastapi.Depends"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-q"

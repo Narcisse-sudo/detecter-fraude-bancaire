@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual envs / tooling caches
+.venv/
+.uv-cache/
+
+# Data (large, downloaded at runtime)
+data/raw/
+data/processed/
+data/metadata.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+.claude

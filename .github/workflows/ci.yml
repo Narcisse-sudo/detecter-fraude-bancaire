@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install uv
+        run: pip install uv
+      - name: Install dependencies
+        run: uv pip install --system -e '.[dev,notebooks]'
+      - name: Lint
+        run: |
+          ruff check .
+          black --check .
+      - name: Tests
+        run: pytest
+      - name: Build Docker API
+        run: docker build -f Dockerfile.api .
+      - name: Build Docker Streamlit
+        run: docker build -f Dockerfile.streamlit .
