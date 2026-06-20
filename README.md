@@ -32,8 +32,8 @@ F1, or under a recall constraint via `--min-recall` (see step 4).
 ### 1) Create uv environment + install deps
 
 ```bash
-uv venv .venv
-source .venv/bin/activate
+uv venv DetectedFraud
+source DetectedFraud/bin/activate
 UV_CACHE_DIR=.uv-cache uv pip install -e '.[dev,notebooks]'
 ```
 

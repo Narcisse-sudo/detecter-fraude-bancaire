@@ -7,6 +7,7 @@ __pycache__/
 
 # Virtual envs / tooling caches
 .venv/
+DetectedFraud/
 .uv-cache/
 
 # Data (large, downloaded at runtime)
