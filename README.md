@@ -1,5 +1,7 @@
 # Credit Card Fraud Detection
 
+[![CI](https://github.com/Narcisse-sudo/detecter-fraude-bancaire/actions/workflows/ci.yml/badge.svg)](https://github.com/Narcisse-sudo/detecter-fraude-bancaire/actions/workflows/ci.yml)
+
 End-to-end project: data ingestion, EDA, preprocessing, modeling, evaluation, and
 deployment with FastAPI + Streamlit + Docker.
 
